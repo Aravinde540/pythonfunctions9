@@ -1,0 +1,78 @@
+		======================================
+			2) Default  Parameters (or) arguments
+		======================================
+=>When there is a Common Value for family of Similar Function Calls then Such type of Common Value(s) must be taken  as default parameter with common value (But not recommended to pass by using Posstional arguments OR Parameters)
+----------------------------------------------------------------------------------------
+Syntax for Function Definition with Default Parameters
+----------------------------------------------------------------------------------------
+def   functionname(param1,param2,....param-n-1=Val1, Param-n=Val2):
+          ------------------------------------------------------------------
+	  ------------------------------------------------------------------
+
+Here param-n-1 and param-n are called "default Parameters".
+   and param1,param-2... are called "Formal Possitional parameters".
+
+Rule-: When we use default parameters in the function definition, They must be used as last Parameter(s) otherwise we get Error( SyntaxError: parameter without a default follows parameter with a default)
+===============================================================================================
+
+#Program for Dermonstrating Default Parameters /  Arguments
+#DefArgsEx1.py
+def  dispstudvals(sno,sname,marks,crs="PYTHON"):
+	print("\t{}\t{}\t{}\t{}".format(sno,sname,marks,crs))
+
+
+#Main Program
+print("-"*50)
+print("\tSNO\tNAME\tMARKS\tCOURSE")
+print("-"*50)
+dispstudvals(10,"RS",34.56) # Function Call with Pos Args
+dispstudvals(20,"TR",44.16) # Function Call with Pos Args
+dispstudvals(30,"DR",24.76) # Function Call with Pos Args
+dispstudvals(40,"RS",44.16) # Function Call with Pos Args
+dispstudvals(50,"JH",24.16) # Function Call with Pos Args
+print("-"*50)
+
+
+#Program for Dermonstrating Default Parameters /  Arguments
+#DefArgsEx2.py
+def  dispstudvals(sno,sname,marks,crs="PYTHON"):
+	print("\t{}\t{}\t{}\t{}".format(sno,sname,marks,crs))
+
+
+#Main Program
+print("-"*50)
+print("\tSNO\tNAME\tMARKS\tCOURSE")
+print("-"*50)
+dispstudvals(10,"RS",34.56) # Function Call with Pos Args
+dispstudvals(20,"TR",44.16) # Function Call with Pos Args
+dispstudvals(30,"DR",24.76) # Function Call with Pos Args
+dispstudvals(40,"RS",44.16) # Function Call with Pos Args
+dispstudvals(50,"JH",24.16) # Function Call with Pos Args
+dispstudvals(60,"DT",11.11,"JAVA") # Function Call with Pos Args
+dispstudvals(70,"JB",21.21) # Function Call with Pos Args
+dispstudvals(80,"PR",33.32,"HTML") # Function Call with Pos Args
+print("-"*50)
+
+
+#Program for Dermonstrating Default Parameters /  Arguments
+#DefArgsEx3.py
+def  dispstudvals(sno,sname,marks,crs="PYTHON",cnt="INDIA"):
+	print("\t{}\t{}\t{}\t{}\t{}".format(sno,sname,marks,crs,cnt))
+
+
+#Main Program
+print("-"*70)
+print("\tSNO\tNAME\tMARKS\tCOURSE\tCOUNTRY")
+print("-"*70)
+dispstudvals(10,"RS",34.56) # Function Call with Pos Args
+dispstudvals(20,"TR",44.16) # Function Call with Pos Args
+dispstudvals(30,"DR",24.76) # Function Call with Pos Args
+dispstudvals(40,"RS",44.16) # Function Call with Pos Args
+dispstudvals(50,"JH",24.16) # Function Call with Pos Args
+dispstudvals(60,"DT",11.11,"JAVA","USA") # Function Call with Pos Args
+dispstudvals(70,"JB",21.21,cnt="USA") # Function Call with Pos Args
+dispstudvals(80,"PR",33.32,cnt="FRANCE",crs="HTML") # Function Call with Pos Args
+print("-"*70)
+
+
+

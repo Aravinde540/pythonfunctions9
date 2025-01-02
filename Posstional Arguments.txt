@@ -1,0 +1,59 @@
+			=========================================================================
+						1. Posstional Arguments
+			=========================================================================
+=>Posstional Arguments Mechanism is the default passing arguments  mechanism used by PVM in Functions for Passing the values of Arguments of Function Call to Formal Parameters of Function Defintion.
+=>Possitional Arguments concept says that Every Argument  Value Passing to Every  Formal Parameter Based on their Posstion by maintaining Order and Meaning for Higher Accuracy. In Otherwords The number of arguments must be equal to Number of Formal Parameters.
+=>Possitional Arguments concept always used for Passing Specific Data from Function calls to Function Definitions.
+ =>PVM gives High Priority for Possitional Arguments
+---------------------------------
+Syntax:     def  functionname(Param1,Param2,....Param-n):  # Function Definition
+			-----------------------------------------------
+			-----------------------------------------------
+			Block of Statements--perform Operation
+			------------------------------------------------
+			-----------------------------------------------
+-------------
+Syntax:       functioname(arg1,arg2,.....,arg-n)  # Function call
+-------------
+=>Here the values of arg1,arg2,.....,arg-n of  Function call are passing to Param1,Param2,....Param-n of Function Definition Respectively.
+===============================================x===========================================
+
+
+#Program for Dermonstrating Possitional Arguments
+#PossArgsEx1.py
+def  dispstudvals(sno,sname,marks):
+	print("\t{}\t{}\t{}".format(sno,sname,marks))
+
+
+#Main Program
+print("-"*50)
+print("\tSNO\tNAME\tMARKS")
+print("-"*50)
+dispstudvals(10,"RS",34.56) # Function Call with Pos Args
+dispstudvals(20,"TR",44.16) # Function Call with Pos Args
+dispstudvals(30,"DR",24.76) # Function Call with Pos Args
+dispstudvals(40,"RS",44.16,) # Function Call with Pos Args
+print("-"*50)
+
+
+
+#Program for Dermonstrating Possitional Arguments
+#PossArgsEx2.py
+def  dispstudvals(sno,sname,marks,crs):
+	print("\t{}\t{}\t{}\t{}".format(sno,sname,marks,crs))
+
+
+#Main Program
+print("-"*50)
+print("\tSNO\tNAME\tMARKS\tCOURSE")
+print("-"*50)
+dispstudvals(10,"RS",34.56,"PYTHON") # Function Call with Pos Args
+dispstudvals(20,"TR",44.16,"PYTHON") # Function Call with Pos Args
+dispstudvals(30,"DR",24.76,"PYTHON") # Function Call with Pos Args
+dispstudvals(40,"RS",44.16,"PYTHON") # Function Call with Pos Args
+dispstudvals(50,"JH",24.16,"PYTHON") # Function Call with Pos Args
+print("-"*50)
+
+
+
+

@@ -1,0 +1,184 @@
+		============================================================
+				 Local and Global Variables 
+		============================================================
+-----------------------
+Local variables
+----------------------
+=>Local variables are used in Function Body
+=>The Purpose of Local Variables is that "To store Temporary Results after Function Processing".
+=>Local Variables can be accessed inside of Corresponding function definition only but not possible to access other 
+    part of the program (Local Access )
+------------------------
+Global Variables
+------------------------
+=>Global Variables are those which are used for Providing Common Value for all Different Function Definitions 
+    (Global Access)
+=>In Memory Management point of view, Global Variable Values takes Less Memory Space.
+=>Global Variables to be defined before all the function calls(Don't Consider Function Definitions). So that we can 
+    access global variable values in all those Function definitions.
+=>Syntax:
+---------------
+			def  fun1():
+			     ------------
+			     ------------
+			def  fun2():
+			     ------------
+			     ------------
+			------------------
+			------------------
+			def  fun-n():
+			     ------------
+			     ------------
+
+#Main Program
+Var1=Val1
+Var2=val2
+--------------
+Var_n=Val_n # Here Var1,Var2,.....Var-n are called Global Variables
+fun1() # Function Call-1
+fun2() # Function Call-2
+-------
+fun-n() # Function Call-n
+
+Hence Var1,Var2,.....Var-n are the Global Variables defined before Function Calls. 
+so that We can access those values inside of corresponding Function Definitions.
+====================================================================================
+
+
+
+
+#Program for Demonstrating Local and global Variables
+#GlobalLocalVarEx1.py
+def  learnAI():
+	sub1="AI"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub1,lang))
+
+def  learnML():
+	sub2="ML"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub2,lang))
+
+def  learnDS():
+	sub3="DS"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub3,lang))
+
+#Main Program
+lang="PYTHON" # here lang is called Global Variable
+learnAI()
+learnML()
+learnDS()
+
+
+
+#Program for Demonstrating Local and global Variables
+#GlobalLocalVarEx2.py
+lang="PYTHON" # here lang is called Global Variable
+def  learnAI():
+	sub1="AI"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub1,lang))
+
+def  learnML():
+	sub2="ML"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub2,lang))
+
+def  learnDS():
+	sub3="DS"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub3,lang))
+
+#Main Program
+learnAI()
+learnML()
+learnDS()
+
+
+
+#Program for Demonstrating Local and global Variables
+#GlobalLocalVarEx3.py
+def  learnAI():
+	sub1="AI"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub1,lang))
+
+def  learnML():
+	sub2="ML"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub2,lang))
+
+lang="PYTHON" # here lang is called Global Variable
+
+def  learnDS():
+	sub3="DS"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub3,lang))
+
+#Main Program
+learnAI()
+learnML()
+learnDS()
+
+
+
+#Program for Demonstrating Local and global Variables
+#GlobalLocalVarEx4.py
+def  learnAI():
+	sub1="AI" # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub1,lang))
+	
+def  learnML():
+	sub2="ML"  # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub2,lang))
+
+def  learnDS():
+	sub3="DS"   # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub3,lang))
+
+#Main Program
+#learnAI()------we can't access 'lang' inside of learnAI() bcoz 'lang' defined after function call
+#learnML()------we can't access 'lang' inside of learnAI() bcoz 'lang' defined after function call
+lang="PYTHON" # here lang is called Global Variable
+learnDS()
+
+
+
+
+#Program for Demonstrating Local and global Variables
+#GlobalLocalVarEx5.py
+def  learnAI():
+	sub1="AI" # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub1,lang))
+	#print(sub2,sub3) We can't access sub2 and sub3 bcoz they are local in other functions
+
+def  learnML():
+	sub2="ML"  # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub2,lang))
+	#print(sub1,sub3) We can't access sub1 and sub3 bcoz they are local in other functions
+
+def  learnDS():
+	sub3="DS"   # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub3,lang))
+	#print(sub1,sub2) We can't access sub1 and sub2 bcoz they are local in other functions
+
+#Main Program
+lang="PYTHON" # here lang is called Global Variable
+learnAI()
+learnML()
+learnDS()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,164 @@
+		==========================================
+					comprehension
+		==========================================
+=>Python is famous for allowing you to write code that’s elegant, easy to write, and almost as easy to read as plain English. One of the language’s most distinctive features is the list comprehension, which you can use to create powerful functionality within a single line of code rather than writing legacy lines of Code.
+=>The purpose of List comprehension is that to read the values dynamically from key board separated by a delimeter ( space, comma, colon..etc)  
+=>List comprehension is the most effective way for reading the data for list instead tradtional reading the data.
+=>Syntax:-        listobj=[ expression   for  varname  in  Iterable_object   if test Cond ] 
+=>here expression represents either type casting or mathematical  expression
+
+Examples:
+----------------------
+print("Enter List of values separated by space:")  # [10 2  22  50  10 4 55  -3  0  22]
+lst=  [float(val)  for val  in input().split() ]
+print("content of lst",lst)
+------------------
+Examples:
+------------------
+lst=[4,3,7,-2,6,3]
+newlst=[ val*2  for val  in lst ]
+print("new list=",newlst)  # [ 8, 6, 14,-4,12,6 ]
+
+
+#Program for Finding Square and Square Root for Every Value of List
+#DictComprehensionEx1.py
+lst=[2,14,16,9,3,15,25,81]
+sqrd={val:val**2 for val in lst} # Dict Comprehension
+print("---------------------------------------")
+print("Given Value\t\tSquare")
+print("---------------------------------------")
+for v,sv in sqrd.items():
+    print("\t{}\t\t\t{}".format(v, sv))
+print("---------------------------------------")
+sqrtd={val:val**0.5 for val in lst} # Dict Comprehension
+print("---------------------------------------")
+print("Given Value\t\tSquareRoot")
+print("---------------------------------------")
+for v,sv in sqrtd.items():
+    print("\t{}\t\t\t{}".format(v, round(sv,2)))
+print("---------------------------------------")
+
+
+
+#Program for accepting a line of Text and Find Even and Odd Length words
+#DictComprehensionEx2.py
+line=input("Enter Line of Text:")
+words=line.split()
+print(words)
+el= {word:len(word) for word in words if len(word)%2==0 }
+ol= {word:len(word) for word in words if len(word)%2!=0 }
+print("Even Length Words")
+for w,wl in el.items():
+    print("\t{}\t\t{}".format(w,wl))
+print("Odd Length Words")
+for w,wl in ol.items():
+    print("\t{}\t\t{}".format(w,wl))
+
+
+#Program for getting Value as Key and Key as Value from Dict
+#DictComprehensionEx3.py
+d={10:"Python",20:"C",30:"Java",40:"Django",50:'CPP'}
+d1={value:key for key,value in d.items()}
+print("Original Dict")
+print(d)
+print("Reversed Dict ")
+print(d1)
+print("===========================OR=============================")
+rd={}
+for k in d:
+    rd[d.get(k)]=k #OR rd[d[k]]=k
+else:
+    print("Original Dict")
+    print(d)
+    print("Reversed Dict ")
+    print(rd)
+
+
+
+#Program for Finding Square of Every Element of List
+#ListComprehensionEx1.py
+lst=[12,4,15,8,-5,0,17]
+print("Given List=",lst)
+sqlist=[ val**2   for val in lst] # List Comprehension
+print("---------------------------------------")
+print("Given Value\t\tSquare Value")
+print("---------------------------------------")
+for ov,sv in zip(lst,sqlist):
+    if(type(sv)!=complex):
+        print("\t{}\t\t\t{}".format(ov,round(sv,2)))
+    else:
+        print("\t{}\t\t\t{}".format(ov,sv))
+print("---------------------------------------")
+
+
+
+
+#Program for Finding Square Root of Every Element of List
+#ListComprehensionEx2.py
+lst=[12,4,15,8,45,-5,0,17]
+print("Given List=",lst)
+sqlist=[ val**0.5   for val in lst] # List Comprehension
+print("---------------------------------------")
+print("Given Value\t\tSquare Root")
+print("---------------------------------------")
+for ov,sv in zip(lst,sqlist):
+    if(type(sv)!=complex):
+        print("\t{}\t\t\t{}".format(ov,round(sv,2)))
+    else:
+        print("\t{}\t\t\t{}".format(ov,sv))
+
+print("---------------------------------------")
+
+
+
+
+#Program for Finding List of +Ve and -Ve Values from List of Values
+#ListComprehensionEx3.py
+lst=[10,-12,30,-40,-50,13,56,-23,-78,90,0,16,-17,66,-55,10]
+print("Given List of Elements=",lst)
+pslist=[ val   for  val in lst   if val>0  ] # List Comprehension
+print("+Ve List=",pslist)
+nglist=[val for val in lst if val<0] # List Comprehension
+print("-Ve List=",nglist)
+
+
+#Program for accepting a line of Text and Find Even and Odd Length words
+#ListComprehensionEx4.py
+line=input("Enter Line of Text:")
+words=line.split()
+print(words)
+el=[word+":"+str(len(word)) for word in words if len(word)%2==0 ]
+ol=[word+":"+str(len(word)) for word in words if len(word)%2!=0 ]
+print("Even Length Words")
+print(el)
+print("Odd Length Words")
+print(ol)
+
+
+#Program for Finding List of +Ve and -Ve Values from List of Values
+#SetComprehensionEx1.py
+lst=[10,-12,30,-40,-50,13,56,-23,-78,90,0,16,-17,66,-55,10]
+print("Given List of Elements=",lst)
+pslist= {val   for  val in lst   if val>0  } # Set Comprehension
+print("+Ve Set Elements=",pslist)
+nglist={val for val in lst if val<0} # set Comprehension
+print("-Ve Set of Elements=",nglist)
+
+
+#Program for Finding Square of Every Element of List
+#TupleComprehensionEx1.py
+lst=(12,4,15,8,-5,0,17)
+print("Given List=",lst)
+sqlist=(val**2   for val in lst) # Not a tuple Comprehension
+# Here sqlist is an object of <class 'generator'>
+# convert generator object sqlist into tuple
+sqlelements=tuple(sqlist)
+print("---------------------------------------")
+print("Given Value\t\tSquare Value")
+print("---------------------------------------")
+for ov,sv in zip(lst,sqlelements):
+    if(type(sv)!=complex):
+        print("\t{}\t\t\t{}".format(ov,round(sv,2)))
+    else:
+        print("\t{}\t\t\t{}".format(ov,sv))
+print("---------------------------------------")

@@ -1,0 +1,165 @@
+				==================================================
+						Special Functions in Python
+				==================================================
+=>In Python Programming, we have 3 Special Functions. They are
+
+				1. filter()
+				2. map()
+				3. reduce()
+===============================================================================================================================================		
+
+
+
+		=========================================================
+						1. filter()
+		=========================================================
+=>filter() is used for  "Filtering out some elements from list of elements by applying to function".
+=>Syntax:-        varname=filter(FunctionName, Iterable_object)
+---------------------
+Explanation:
+---------------------
+=>here 'varname' is an object of type <class,'filter'> and we can convert into any iteratable object by using type 
+   casting functions.
+=>"FunctionName" represents either Normal function or anonymous functions.
+=>"Iterable_object" represents Sequence, List, set and dict types.
+=>The execution process of filter() is that  " Each Value of Iterable object sends to Function Name. If the function return True then the element will be filtered. if the Function returns False then that element will be neglected/not filtered ". This process will be continued until all elements of Iterable object completed".
+------------------------------------------------------------------------------------------------------------------------------------------------
+#Program for accepting List of Values and get +Ve Vals
+#FilterEx1.py
+def positive(val):
+    if(val>0):
+        return True
+    else:
+        return False
+def negative(val):
+    if(val<0):
+        return True
+    else:
+        return False
+#Main Program
+lst=[10,-20,-30,40,0,-50,60,-70,12]
+
+obj1=filter(positive ,lst) # Here obj is an object <class, filter>
+obj2=filter(negative ,lst)
+#Convert filter Object int list ,tuple ,set
+pslist=list(obj1)
+nglist=list(obj2)
+print("Given Elements=",lst)
+print("Possitive Elements=",pslist)
+print("Negative Elements=",nglist)
+
+===============================================================================================================================================
+
+#Program for accepting List of Values and get +Ve Vals
+#FilterEx2.py
+def positive(val):
+    if(val>0):
+        return True
+    else:
+        return False
+def negative(val):
+    if(val<0):
+        return True
+    else:
+        return False
+#Main Program
+print("Enter List of Elements Separated by Space")
+lst=[float(val) for val in input().split()]
+
+pslist=list(filter(positive,lst))
+nglist=tuple(filter(negative,lst))
+print("Given Elements=",lst)
+print("Possitive Elements=",pslist)
+print("Negative Elements=",nglist)
+
+===============================================================================================================================================
+#Program for accepting List of Values and get +Ve Vals
+#FilterEx3.py
+positive=lambda lst: lst >0
+negative=lambda val: val<0
+#Main Program
+print("Enter List of Elements Separated by Space")
+lst=[float(val) for val in input().split()]
+
+pslist=list(filter(positive,lst))
+nglist=tuple(filter(negative,lst))
+print("Given Elements=",lst)
+print("Possitive Elements=",pslist)
+print("Negative Elements=",nglist)
+
+
+===============================================================================================================================================
+#Program for accepting List of Values and get +Ve Vals
+#FilterEx4.py
+print("Enter List of Elements Separated by Space")
+lst=[float(val) for val in input().split()]
+pslist=list(filter(lambda val: val>0,lst))
+nglist=tuple(filter(lambda val: val<0,lst))
+print("Given Elements=",lst)
+print("Possitive Elements=",pslist)
+print("Negative Elements=",nglist)
+===============================================================================================================================================
+
+#Program for accepting line of Text and get those words which contains at least one one Vowel
+#FilterEx5.py
+
+def isvowel(word):
+    res=False
+    for ch in word:
+        if ch.lower() in list("aeiou"):
+            res=True
+            break
+    return res
+
+#Main Program
+line=input("Enter Line of Text:") # Sky is Blue
+words=line.split() # words=[Sky, is , blue]
+vwords=list(filter(isvowel,words))
+print("Vowel Words=",vwords)
+
+===============================================================================================================================================
+#Program for accepting line of Text and get those words which contains at least one one Vowel
+#FilterEx6.py
+def isvowel(word):
+    res=not(set(word.lower()).isdisjoint((set("aeiou"))))
+    return  res
+#Main Program
+line=input("Enter Line of Text:") # Sky is Blue
+words=line.split() # words=[Sky, is , blue]
+vwords=list(filter(isvowel,words))
+print("Vowel Words=",vwords)
+===============================================================================================================================================
+#Program for accepting line of Text and get those words which contains at least one one Vowel
+#FilterEx7.py
+line=input("Enter Line of Text:") # Sky is Blue
+words=line.split() # words=[Sky, is , blue]
+vwords=list(filter(lambda word:not(set(word.lower()).isdisjoint(set("aeiou"))),words))
+print("Vowel Words=",vwords)
+
+
+===============================================================================================================================================
+#Program for accepting List if Numebrs and get those numbers whose number length ranges btween 2 to 3
+#FilterEx8.py
+print("Enter List of Numbers separated by Space:")
+numbers=[value for value in input().split()]
+print("Given Numbers:",numbers)
+# ['1234', '56', '3456', '78', '123', '79', 'Python', 'java', '67']
+nums23=list(filter(lambda num:num.isdigit() and len(num) in [2,3] , numbers))
+print("Numbers with 2 or 3 in length")
+print(nums23)
+===============================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

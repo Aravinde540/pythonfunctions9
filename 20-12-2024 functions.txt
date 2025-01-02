@@ -1,0 +1,244 @@
+#ArithmeticOpFunctionsEx1.py
+def menu():
+    print("*"*50)
+    print("\tARITHMETIC OPERATIONS")
+    print("*" * 50)
+    print("\t\t1.Addition")
+    print("\t\t2.Substraction")
+    print("\t\t3.Multiplication")
+    print("\t\t4.Division")
+    print("\t\t5.Modulo Division")
+    print("\t\t6.Exponentiation")
+    print("\t\t7.Exit")
+    print("*" * 50)
+def addop():
+    print("Enter Two Values for Addition")
+    a,b=float(input()),float(input())
+    print("\t\tsum({},{})={}".format(a,b,a+b))
+def subop():
+    print("Enter Two Values for Substraction")
+    a,b=float(input()),float(input())
+    print("\t\tsub({},{})={}".format(a,b,a-b))
+def mulop():
+    print("Enter Two Values for Multiplication")
+    a,b=float(input()),float(input())
+    print("\t\tmul({},{})={}".format(a,b,a*b))
+def divop():
+    print("Enter Two Values for Division")
+    a,b=float(input()),float(input())
+    print("\t\tDiv({},{})={}".format(a,b,a/b))
+    print("\t\tFloorDiv({},{})={}".format(a,b,a//b))
+def modop():
+    print("Enter Two Values for Modulo Division")
+    a,b=float(input()),float(input())
+    print("\t\tMod({},{})={}".format(a,b,a%b))
+def expop():
+    a,b=float(input("Enter Base:")),float(input("Enter Power:"))
+    print("\t\tPow({},{})={}".format(a,b,a**b))
+
+#Main Program
+while(True):
+    menu()
+    ch=int(input("Enter Ur Choice:"))
+    match(ch):
+        case 1:
+            addop() # Function Call
+        case 2:
+            subop() # Function Call
+        case 3:
+            mulop() # Function Call
+        case 4:
+            divop() # Function Call
+        case 5:
+            modop() # Function Call
+        case 6:
+            expop() # Function Call
+        case 7:
+            print("Thx for Using this Program")
+            break
+        case _:
+            print("UR selection of Operation is wrong-try again")
+
+
+
+
+#ArithmeticOpFunctionsEx2.py
+def menu():
+    print("*"*50)
+    print("\tARITHMETIC OPERATIONS")
+    print("*" * 50)
+    print("\t\t1.Addition")
+    print("\t\t2.Substraction")
+    print("\t\t3.Multiplication")
+    print("\t\t4.Division")
+    print("\t\t5.Modulo Division")
+    print("\t\t6.Exponentiation")
+    print("\t\t7.Exit")
+    print("*" * 50)
+def readvals(op):
+    print("Enter Two Values for {}".format(op))
+    a, b = float(input()), float(input())
+    return a,b
+def addop():
+    a,b=readvals("Addition")
+    print("\t\tsum({},{})={}".format(a,b,a+b))
+def subop():
+    a,b=readvals("Substraction")
+    print("\t\tsub({},{})={}".format(a,b,a-b))
+def mulop():
+    x,y=readvals("Multiplication")
+    print("\t\tmul({},{})={}".format(x,y,x*y))
+def divop():
+    a,b=readvals("Division")
+    print("\t\tDiv({},{})={}".format(a,b,a/b))
+    print("\t\tFloorDiv({},{})={}".format(a,b,a//b))
+def modop():
+    a,b=readvals("Modulo Division")
+    print("\t\tMod({},{})={}".format(a,b,a%b))
+def expop():
+    a,b=float(input("Enter Base:")),float(input("Enter Power:"))
+    print("\t\tPow({},{})={}".format(a,b,a**b))
+
+#Main Program
+while(True):
+    menu()
+    ch=input("Enter Ur Choice:")
+    if(ch.isdigit()):
+        match(int(ch)):
+            case 1:
+                addop() # Function Call
+            case 2:
+                subop() # Function Call
+            case 3:
+                mulop() # Function Call
+            case 4:
+                divop() # Function Call
+            case 5:
+                modop() # Function Call
+            case 6:
+                expop() # Function Call
+            case 7:
+                print("Thx for Using this Program")
+                break
+            case _:
+                print("UR selection of Operation is wrong-try again")
+    else:
+        print("Ur Choice Must be Integer--try again")
+
+
+
+#Write a Python Program which will accept List of Values as Scores and find runner-up score by using functions.
+#FindRunnerUpScore.py
+def getscores():
+    scores=[]
+    noc=int(input("Enter Number of Scores:"))
+    if(noc<=0):
+        return scores
+    else:
+        for i in range(1,noc+1):
+            scores.append(float(input("Enter {} Score Value:".format(i))))
+        else:
+            return scores
+
+def getrunnerupscore():
+    scores=getscores()
+    if(len(scores)==0):
+        print("There is no score--can't find runner up score")
+    else:
+        score=sorted(set(scores))
+        print("Unique Score Values")
+        print(score)
+        print("Runner-up score={}".format(score[-2]))
+#main program
+getrunnerupscore()
+
+
+
+#write a Python Program which read list of values and
+# find sum and their average by using Functions.
+#SumAvgFunsEx1.py
+def readvalues():
+    nov=int(input("Enter How Many Values u have:"))
+    if(nov<=0):
+        return [] # returning empty list
+    else:
+        lst=[] # Creating an empty list adding values
+        for i in range(1,nov+1):
+            val=float(input("Enter {} Value:".format(i)))
+            lst.append(val)
+        return  lst # returning non-empty list
+
+def findsumavg(lst):
+    if(len(lst)==0):
+        print("List is empty--can't find sum and avg")
+    else:
+        print("----------------------")
+        print("List of Values")
+        print("----------------------")
+        s=0
+        for val in lst:
+            print("\t{}".format(val))
+            s=s+val
+        else:
+            print("----------------------")
+            print("Sum={}".format(s))
+            print("Avg={}".format(s/len(lst)))
+            print("----------------------")
+
+#Main Program
+lst=readvalues() # Function Call
+findsumavg(lst) # Function Call
+
+
+
+
+
+#write a Python Program which read list of values and
+# find sum and their average by using Functions.
+#SumAvgFunsEx1.py
+def readvalues():
+    nov=int(input("Enter How Many Values u have:"))
+    if(nov<=0):
+        return [] # returning empty list
+    else:
+        lst=[] # Creating an empty list adding values
+        for i in range(1,nov+1):
+            val=float(input("Enter {} Value:".format(i)))
+            lst.append(val)
+        return  lst # returning non-empty list
+
+def findsumavg():
+    lst=readvalues() # function call
+    #The above statement makes us understand How One Function calls another function
+    if(len(lst)==0):
+        print("List is empty--can't find sum and avg")
+    else:
+        print("----------------------")
+        print("List of Values")
+        print("----------------------")
+        s=0
+        for val in lst:
+            print("\t{}".format(val))
+            s=s+val
+        else:
+            print("----------------------")
+            print("Sum={}".format(s))
+            print("Avg={}".format(s/len(lst)))
+            print("----------------------")
+
+#Main Program
+findsumavg() # Function Call
+
+
+
+
+
+
+
+
+
+
+
+
+
+

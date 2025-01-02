@@ -1,0 +1,101 @@
+	============================================
+		global  and local variables and globals()
+	============================================
+=>When we come across same global Variable names and Local Variable Names in same function definition then PVM gives preference for local variables but not for global variables.
+=>In this context, to extract / retrieve the values of global variables names along with local variables, we must use globals() and it returns an object of <class,'dict'> and this dict object stores all global variable Names as Keys and global variable values as values of value.
+
+=>Syntax:-
+		var1=val1
+		var2=val2
+		--------------
+		var-n=val-n  # var1, var2...var-n are called global Variables
+		def    functionname():
+		       ------------------------
+		       var1=val11
+		       var2=val22
+		       ------------------------
+		       var-n=val-nn  #  var1, var2...var-n are called local Variables
+		       # Extarct  the global variables values
+		       dictobj=globals()
+		       ------------------------
+		       globalval1=dictobj['var1']  #  or  dictobj.get("var1") or globals()['var1'] or global().get('var1')
+		       globalval2=dictobj['var2']  # or dictobj.get("var2") or globals()['var2'] or global().get('var2')
+		       -----------------------------------------------------
+		       -----------------------------------------------------
+============================================================================================
+
+
+
+#Program for Demonstrating Local and global Variables with Different Names
+#GlobalsFunEx1.py
+a=10
+b=20
+c=30
+d=40 # here 'a', 'b','c' and 'd' are called global variables
+def  operation():
+	x=100
+	y=200
+	z=300
+	k=400 # # here 'x', 'y','z' and 'k' are called local variables
+	res=x+y+z+k+a+b+c+d
+	print("Sum of Both Local and global var values=",res)
+
+#Main Program
+operation()
+
+
+#Program for Demonstrating Local and global Variables with Different Names
+#GlobalsFunEx1.py
+a=10
+b=20
+c=30
+d=40 # here 'a', 'b','c' and 'd' are called global variables
+def  operation():
+	x=100
+	y=200
+	z=300
+	k=400 # # here 'x', 'y','z' and 'k' are called local variables
+	res=x+y+z+k+a+b+c+d
+	print("Sum of Both Local and global var values=",res)
+
+#Main Program
+operation()
+
+
+
+#GlobalsFunEx3.py
+#Program for Demonstrating globals()
+#GlobalsFunEx2.py
+a=10
+b=20 # here 'a', 'b' are called global variables
+def  infoglobals():
+	d=globals()
+	print("------------------------------------------------------------------------------------------")
+	print("Invisible and programmer-defined global variables")
+	for k,v in d.items():
+		print("\t{}-->{}".format(k,v))
+	print("------------------------------------------------------------------------------------------")
+	print("programmer-defined global variables--way-1")
+	print("\tGlobal Var a=",d.get('a'))
+	print("\tGlobal Var b=",d.get('b'))
+	print("------------------------------------------------------------------------------------------")
+	print("programmer-defined global variables-way-2")
+	print("\tGlobal Var a=",d['a'])
+	print("\tGlobal Var b=",d['b'])
+	print("------------------------------------------------------------------------------------------")
+	print("programmer-defined global variables-way-3")
+	print("\tGlobal Var a=",globals()['a'])
+	print("\tGlobal Var b=",globals()['b'])
+	print("------------------------------------------------------------------------------------------")
+	print("programmer-defined global variables-way-4")
+	print("\tGlobal Var a=",globals().get('a'))
+	print("\tGlobal Var b=",globals().get('b'))
+	print("------------------------------------------------------------------------------------------")
+
+
+#Main Program
+infoglobals()
+
+
+
+

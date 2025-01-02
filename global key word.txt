@@ -1,0 +1,246 @@
+		======================================
+				global key word  
+		======================================
+=>When we want MODIFY the GLOBAL VARIABLE values in side of function defintion  then global variable names must be preceded with 'global' keyword otherwise we get "UnboundLocalError: cannot access local variable 'a' where it is not associated with a value"
+------------
+Syntax:
+-----------
+	var1=val1
+	var2=val2
+	var-n=val-n    #  var1,var2...var-n are called global variable names.
+	------------------
+	def   fun1():
+		------------------------
+		global var1,var2...var-n
+		# Modify var1,var2....var-n
+	    --------------------------
+	def   fun2():
+	       ------------------------
+	        global var1,var2...var-n
+	     # Modify var1,var2....var-n
+	       ---------------------------------
+
+NOTE: To MODIFY Global variable Values inside of Function Definition, we use global Keyword (Mandatory to write)
+NOTE: To ACCESS Global variable Values inside of Function Definition, we Don't use global Keyword
+====================================================================================
+
+
+#Program for Demonstrating Local and global Variables
+#GlobalLocalVarEx1.py
+def  learnAI():
+	sub1="AI"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub1,lang))
+
+def  learnML():
+	sub2="ML"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub2,lang))
+
+def  learnDS():
+	sub3="DS"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub3,lang))
+
+#Main Program
+lang="PYTHON" # here lang is called Global Variable
+learnAI()
+learnML()
+learnDS()
+
+
+
+#Program for Demonstrating Local and global Variables
+#GlobalLocalVarEx2.py
+lang="PYTHON" # here lang is called Global Variable
+def  learnAI():
+	sub1="AI"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub1,lang))
+
+def  learnML():
+	sub2="ML"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub2,lang))
+
+def  learnDS():
+	sub3="DS"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub3,lang))
+
+#Main Program
+learnAI()
+learnML()
+learnDS()
+
+
+
+#Program for Demonstrating Local and global Variables
+#GlobalLocalVarEx3.py
+def  learnAI():
+	sub1="AI"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub1,lang))
+
+def  learnML():
+	sub2="ML"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub2,lang))
+
+lang="PYTHON" # here lang is called Global Variable
+
+def  learnDS():
+	sub3="DS"
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub3,lang))
+
+#Main Program
+learnAI()
+learnML()
+learnDS()
+
+
+
+#Program for Demonstrating Local and global Variables
+#GlobalLocalVarEx4.py
+def  learnAI():
+	sub1="AI" # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub1,lang))
+	
+def  learnML():
+	sub2="ML"  # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub2,lang))
+
+def  learnDS():
+	sub3="DS"   # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub3,lang))
+
+#Main Program
+#learnAI()------we can't access 'lang' inside of learnAI() bcoz 'lang' defined after function call
+#learnML()------we can't access 'lang' inside of learnAI() bcoz 'lang' defined after function call
+lang="PYTHON" # here lang is called Global Variable
+learnDS()
+
+
+
+
+#Program for Demonstrating Local and global Variables
+#GlobalLocalVarEx5.py
+def  learnAI():
+	sub1="AI" # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub1,lang))
+	#print(sub2,sub3) We can't access sub2 and sub3 bcoz they are local in other functions
+
+def  learnML():
+	sub2="ML"  # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub2,lang))
+	#print(sub1,sub3) We can't access sub1 and sub3 bcoz they are local in other functions
+
+def  learnDS():
+	sub3="DS"   # Local Var
+	print("To Develop '{}' Based Applications, we use '{}' Programming Lang".format(sub3,lang))
+	#print(sub1,sub2) We can't access sub1 and sub2 bcoz they are local in other functions
+
+#Main Program
+lang="PYTHON" # here lang is called Global Variable
+learnAI()
+learnML()
+learnDS()
+
+
+
+#Program for Demonstrating the need of global keyword
+#GlobalKeywordEx1.py
+def  update1():
+	global a
+	a=a+1 # Here a is considered by PVM as global Var  bcoz of global kwd
+	
+def update2():
+	global a
+	a=a*2 # Here a is considered by PVM as global Var bcoz of global kwd
+
+
+#Main Program
+a=10 # Global Variable
+print("Main Program--Val of a before update1()={}".format(a))
+update1() # Function Call
+print("Main Program--Val of a after update1()={}".format(a))
+update2()
+print("Main Program--Val of a after update2()={}".format(a))
+
+
+
+
+#Program for Demonstrating the need of global keyword
+#GlobalKeywordEx2.py
+def  update1():
+	global a,b
+	a=a+1 # Here a is considered by PVM as global Var  bcoz of global kwd
+	b=b+1  # Here b is considered by PVM as global Var  bcoz of global kwd
+	
+def update2():
+	global a,b
+	a=a*2 # Here a is considered by PVM as global Var bcoz of global kwd
+	b=b*2 # Here b is considered by PVM as global Var  bcoz of global kwd
+
+
+#Main Program
+a,b=10,20 # Global Variable
+print("Main Program--before update1():  a={}  b={}".format(a,b))
+update1() # Function Call
+print("Main Program----after update1():  a={}  b={}".format(a,b))
+update2()
+print("Main Program----afterupdate2():  a={}  b={}".format(a,b))
+
+
+
+#Program for Demonstrating the need of global keyword
+#GlobalKeywordEx3.py
+def  update1():
+	global a,b
+	a=a+1 # Here a is considered by PVM as global Var  bcoz of global kwd
+	b=b+1  # Here b is considered by PVM as global Var  bcoz of global kwd
+	
+def update2():
+	global a,b
+	a=a*2 # Here a is considered by PVM as global Var bcoz of global kwd
+	b=b*2 # Here b is considered by PVM as global Var  bcoz of global kwd
+
+def update3():
+	c=a+2 # Here we are Just accessing the val of global var val a but not modifying. so that no need to write global kwd
+	d=b+2 #Here we are Just accessing the val of global var val b but not modifying. so that no need to write global kwd
+	print("In Update3() c={} and d={}--they are local".format(c,d))
+
+#Main Program
+a,b=10,20 # Global Variable
+print("Main Program--before update1():  a={}  b={}".format(a,b))
+update1() # Function Call
+print("Main Program----after update1():  a={}  b={}".format(a,b))
+update2()
+print("Main Program----after update2():  a={}  b={}".format(a,b))
+update3()
+print("Main Program----after update3():  a={}  b={}".format(a,b))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

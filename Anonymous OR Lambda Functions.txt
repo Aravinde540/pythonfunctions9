@@ -1,0 +1,186 @@
+				======================================================
+						Anonymous OR Lambda Functions
+				======================================================
+=>The Anonymous Functions are those which does not contain any name Explicitly
+=>The Purpose of Anonymous Functions is that "To Perform Instant Operations".
+=>Instant Operations are nothing the Operations used at that point of time only and Not Interested to use in Other 
+    Project / Applications.
+=>The Anonymous Functions contains Single  Executable Statement ( Used for Small Problem Statement)
+=>The Anonymous Functions returns the Result Automatically. (No Need to write return statement)
+=>To Define Anonymous Functions, we use lambda keyword and hence  Anonymous Functions are called Lambda 
+    Functions.
+----------------------
+Syntax:				varname = lambda params-list : Expression
+----------------------
+=>here 'varname' Represents InDirect Name to Anonymous Function and whose type <class,'function'>
+=>here lambda keyword used for Defining Anonymous Functions
+=>here params-list Represents List of Formal Params and they are used for Storing the Inputs coming from function 
+    calls and taking params-list  is optional.
+=>Here Expression Represents Single  Executable Statement and It Provides Solution for Instant Operations and whose Result Returns Automativally / Implicitly .
+===========================================================================================
+			Problem:   Define a Function for cal addition of Two Numbers
+	-----------------------------------------------------------------------------------------------------------------------------------------------
+By Using Normal Function								By Using Anonymous Function
+-------------------------------------							---------------------------------------------------------------
+def  sumop(a,b):									addop = lambda a,b: a+b
+    return(a+b)
+
+#Main Program									#Main Program
+res=sumop(10,20) # Function Call					res=addop(10,20)
+print("sum=",res)									print("Sum=",res)
+===========================================================================================
+
+
+
+
+
+
+##Program for Performfing all arithmetic Operations by using Anonymous Functions
+#AnonymousFunEx2.py
+import sys
+sumop=lambda a,b:a+b
+subop=lambda a,b:a-b
+mulop=lambda a,b:a*b
+divop=lambda a,b:a/b
+fdivop=lambda a,b:a//b
+modop=lambda a,b:a%b
+expop=lambda a,b:a**b
+
+print("*"*50)
+print("\tArithmetic Operations")
+print("*"*50)
+print("\t\t1.Addition")
+print("\t\t2.Substraction")
+print("\t\t3.Multiplication")
+print("\t\t4.Division")
+print("\t\t5.Modulo Div")
+print("\t\t6.Exponentiation")
+print("\t\t7.Exit")
+print("*"*50)
+ch=int(input("Enter UR Choice:"))
+match(ch):
+    case 1 :
+        print("Enter Two Values for Addition:")
+        a,b=float(input()),float(input())
+        print("\t\tsum({},{})={}".format(a,b,sumop(a,b)))
+    case 2:
+        print("Enter Two Values for Substraction:")
+        a, b = float(input()), float(input())
+        print("\t\tsub({},{})={}".format(a, b, subop(a,b)))
+    case 3:
+        print("Enter Two Values for Multiplication:")
+        a, b = float(input()), float(input())
+        print("\t\tmul({},{})={}".format(a, b, mulop(a , b)))
+    case 4:
+        print("Enter Two Values for Division:")
+        a, b = float(input()), float(input())
+        print("\t\tNormal Div({},{})={}".format(a, b, divop(a,b)))
+        print("\t\tFloor Div({},{})={}".format(a, b, fdivop(a,b)))
+    case 5:
+        print("Enter Two Values for Modulo Div:")
+        a, b = float(input()), float(input())
+        print("\t\tmod({},{})={}".format(a, b, modop(a,b)))
+    case 6:
+        a, b = float(input("Enter Base:")), float(input("Enter Power:"))
+        print("\t\tpow({},{})={}".format(a, b, expop(a,b)))
+    case 7:
+        print("Thx for Using this Program")
+        sys.exit()
+    case _:
+        print("Ur Selection of Operation is Wrong--try again")
+
+
+
+#Program for Finding Biggest of Two Numbers by using Anonymous Funs
+#AnonymousFunEx3.py
+big=lambda a,b: a if a>b else b if b>a else "Both Values are Equal"
+
+#Main Program
+print("Enter Two Values")
+bv=big(float(input()),float(input()))
+print("Big=",bv)
+
+
+#Program for Accepting List of Values and Find Max and Min by using Anonymous Functions
+# with pre-functions max() and min()
+#AnonymousFunEx4.py
+def readvalues():
+    nov=int(input("Enter How Many Values u have:"))
+    if(nov<=0):
+        return [] # empty list
+    else:
+        lst=[]
+        for i in range(1,nov+1):
+            val=float(input("Enter {} Value:".format(i)))
+            lst.append(val)
+        else:
+            return lst
+
+# Anonymous Function  Defs
+findmax=lambda lst: max(lst)
+findmin=lambda lst: min(lst)
+
+#Main Program
+lst=readvalues() # list of values
+if(len(lst)==0):
+    print("List is empty--can't find max and min")
+else:
+    maxv=findmax(lst) # Anonymous Function Call
+    minv=findmin(lst) # Anonymous Function Call
+    print("Max({})={}".format(lst,maxv))
+    print("Min({})={}".format(lst, minv))
+
+
+
+#Program for Accepting List of Values and Find Max and Min by using Anonymous Functions
+# without using predefined functions max() and min()
+#AnonymousFunEx5.py
+def kvrmax(lst):#lst= [12.0, 34.56, 78.9, 56.0, 34.0, 5.6]
+    maxv=lst[0]
+    for val in lst:
+        if(val>maxv):
+            maxv=val
+    return maxv
+def kvrmin(lst):#lst= [12.0, 34.56, 78.9, 56.0, 34.0, 5.6]
+    minv=lst[0]
+    for val in lst:
+        if(val<minv):
+            minv=val
+    return minv
+
+# Anonymous Function  Defs
+findmax=lambda lst: kvrmax(lst)
+findmin=lambda lst: kvrmin(lst)
+
+#Main Program
+#Reading Values from KeyBoard by using List Comprehension
+print("Enter List of Values separated by Comma:")
+lst=[float(val) for val in input().split(",")]
+#Calling Anonymous Funs
+maxv=findmax(lst) # Anonymous Function Call
+minv=findmin(lst) # Anonymous Function Call
+print("Max({})={}".format(lst,maxv))
+print("Min({})={}".format(lst, minv))
+
+
+#AnonymousFunEx6.py
+#Anonymous Fun with Param
+palindrome=lambda w: "{} is Palindrome".format(w) if w==w[::-1] else "{} is Not Palindrome".format(w)
+#Anonymous Fun without Param
+word=lambda:input("Enter Any Name:")
+
+#Main Program
+print(palindrome(word()))
+
+
+
+#Reading values from Key Baord by using List Comprehension
+#ReadValuesByComp.py
+print("Enter List of Values separated by space")
+lst=[float(val)  for val in input().split() ]
+print("List of Values=",lst)
+
+
+
+
+

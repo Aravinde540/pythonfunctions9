@@ -1,0 +1,316 @@
+			============================================================
+				Number of approaches to Define Functions in Python
+			============================================================
+=>If we get any Problem OR Task with Functions, we develop with 4 Approaches. 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Approach-1
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+#INPUT   :  Taking from Function Call
+#PROCESS :  Inside Function Body 
+#OUTPUT  : Giving to Function call
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Approach-2
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+#INPUT    : Taking Inside of function body
+#PROCESS  : Doing Inside of function body
+#OUTPUT   : Inside of function body
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Approach-3
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+#INPUT    : Taking from Function Call
+#PROCESS  : Inside Function Body
+#OUTPUT   :Inside of function body
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Approach-4
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+#INPUT    : Taking Inside of function body
+#PROCESS  :  Inside of function body
+#OUTPUT   :  Giving to Function call
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#Program for Calculting Sum of Two Numbers by using Functions
+#Approach1.py
+#INPUT   :  Taking from Function Call
+#PROCESS :  Inside Function Body
+#OUTPUT  :  Giving to Function call
+def sumop(k,v): # Here k and v are called Formal Params
+    r=k+v # Here r is called Local Variable
+    return r
+
+#Main Program
+x=float(input("Enter First Value:"))
+y=float(input("Enter Second Value:"))
+res=sumop(x,y) # Function Call is Taking inputs and Getting output
+print("sum({},{})={}".format(x,y,res))
+print("-------------------------------------")
+k=float(input("Enter First Value:"))
+v=float(input("Enter Second Value:"))
+r=sumop(k,v) # Function Call
+print("sum({},{})={}".format(k,v,r))
+
+
+#Program for Calculting Sum of Two Numbers by using Functions
+#INPUT    : Taking Inside of function body
+#PROCESS  : Doing Inside of function body
+#OUTPUT   : Inside of function body
+#Approach2.py
+def sumop():
+    #Taking Input
+    a=float(input("Enter First Value:"))
+    b = float(input("Enter Second Value:"))
+    #Doing the Process
+    c=a+b
+    #display the output
+    print("sum({},{})={}".format(a,b,c))
+
+#Main Program
+sumop() # Function call not taking Input and not getting output
+
+
+
+
+#Program for Calculting Sum of Two Numbers by using Functions
+#INPUT    : Taking from Function Call
+#PROCESS  : Inside Function Body
+#OUTPUT   :Inside of function body
+#Approach3.py
+def sumop(a,b):
+    c=a+b
+    print("sum({},{})={}".format(a,b,c))
+
+#main Program
+a=float(input("Enter First Value:"))
+b=float(input("Enter Second Value:"))
+sumop(a,b) # Function Call Taking Input But Not Returning Value
+
+
+
+#Program for Calculting Sum of Two Numbers by using Functions
+#INPUT    : Taking Inside of function body
+#PROCESS  :  Inside of function body
+#OUTPUT   :  Giving to Function call
+#Approach4.py
+def sumop():
+    # Taking Input
+    a = float(input("Enter First Value:"))
+    b = float(input("Enter Second Value:"))
+    # Doing the Process
+    c = a + b
+    #give the result back to fucntion call
+    return a,b,c # return stmt can return Not only one value but also returns more than one value
+
+#Main Program
+a,b,res=sumop() # Function call with multi line --Not taking Input But returning the Resulr
+print("sum({},{})={}".format(a,b,res))
+print("------------OR---------------")
+res=sumop() # Function call with single line --Not taking Input But returning the Resulr
+#here res is an object of type <class, tuple>
+print("sum({},{})={}".format(res[0],res[1],res[2]))
+print("------------OR---------------")
+print("sum({},{})={}".format(res[-3],res[-2],res[-1]))
+
+
+
+
+#Program for Calculting Sum of Two Numbers by using Functions
+#INPUT    : Taking Inside of function body
+#PROCESS  :  Inside of function body
+#OUTPUT   :  Giving to Function call
+#Approach4.py
+def sumop():
+    # Taking Input
+    a = float(input("Enter First Value:"))
+    b = float(input("Enter Second Value:"))
+    # Doing the Process
+    c = a + b
+    #give the result back to fucntion call
+    return a,b,c # return stmt can return Not only one value but also returns more than one value
+
+#Main Program
+a,b,res=sumop() # Function call with multi line --Not taking Input But returning the Resulr
+print("sum({},{})={}".format(a,b,res))
+print("------------OR---------------")
+res=sumop() # Function call with single line --Not taking Input But returning the Resulr
+#here res is an object of type <class, tuple>
+print("sum({},{})={}".format(res[0],res[1],res[2]))
+print("------------OR---------------")
+print("sum({},{})={}".format(res[-3],res[-2],res[-1]))
+
+
+
+
+#Program for Calculuating Simple Int and total amount to pay by using Functions
+#SimpleIntAapr5.py
+def simplint():
+    #Taking Input Inside of Function Body
+    p=float(input("Enter Principle Amount:"))
+    t = float(input("Enter Time:"))
+    r = float(input("Enter Rate of Interest:"))
+    lst=[] # For adding Multiple Error Messages
+    if(p<=0):
+        lst.append(f"Principle Amount {p} is Invalid\n")
+    if(r<=0):
+        lst.append(f"Rate of Interest  {r} is Invalid\n")
+    if(t<=0):
+        lst.append(f"Time {t} is Invalid\n")
+    if(p<=0) or (r<=0) or (t<=0):
+        return"".join(lst)
+    else:
+        # Do the Process
+        si=(p*t*r)/100
+        totamt=p+si
+        #give the result to Function Call
+        return p,t,r,si,totamt
+#main Program
+res=simplint() # Function Call--returns either str or tuple type
+if(type(res)==str):
+    print(res)
+else:
+    # Here res is an object of <class, tuple>
+    print("===========================================")
+    print("\t\t\tSimple Interest Calculations")
+    print("===========================================")
+    print("\t\tPrinciple Amount:{}".format(res[0]))
+    print("\t\tTime:{}".format(res[1]))
+    print("\t\tRate of Interest:{}".format(res[2]))
+    print("\t\tSimple Interest:{}".format(res[3]))
+    print("\t\tTotal Amount to Pay:{}".format(res[4]))
+    print("===========================================")
+
+
+#Program for Calculting Sum of Two Numbers by using Functions
+#ApproachEx1.py
+def sumop(k,v): # Here k and v are called Formal Params
+    r=k+v # Here r is called Local Variable
+    return r
+
+
+#Main Program
+res=sumop(10,20) # Function Call
+print("sum=",res)
+r=sumop(100,200)
+print("sum=",r)
+r=sumop(-10,-300)
+print("sum=",r)
+
+
+# Program for Demonstrating The Parts of Functions
+print("Line-2: I am before Function Definition")
+def greet(name): # Function Definition
+    print("Line-3: {} Good Morning".format(name))
+
+print("Line-6--->I am from main program and after function def")
+greet("Rossum") # Function Call
+print("Line-8--->I am from main program and after function Call")
+print("------------------------------")
+greet("Travis") # Function Call
+greet("Jhon Hunter") # Function Call
+print("------------------------------")
+#welcme()----NameError: name 'welcme' is not defined
+
+
+
+#Program for Calculuating Simple Int and total amount to pay by using Functions
+#SimpleIntAapr4.py
+def simplint():
+    #Taking Input Inside of Function Body
+    p=float(input("Enter Principle Amount:"))
+    t = float(input("Enter Time:"))
+    r = float(input("Enter Rate of Interest:"))
+    if(p<=0) or (t<=0) or (r<=0):
+        return "Invalid Input"
+    else:
+        # Do the Process
+        si=(p*t*r)/100
+        totamt=p+si
+        #give the result to Function Call
+        return p,t,r,si,totamt
+#main Program
+res=simplint() # Function Call--returns either str or tuple type
+if(type(res)==str):
+    print(res)
+else:
+    # Here res is an object of <class, tuple>
+    print("===========================================")
+    print("\t\t\tSimple Interest Calculations")
+    print("===========================================")
+    print("\t\tPrinciple Amount:{}".format(res[0]))
+    print("\t\tTime:{}".format(res[1]))
+    print("\t\tRate of Interest:{}".format(res[2]))
+    print("\t\tSimple Interest:{}".format(res[3]))
+    print("\t\tTotal Amount to Pay:{}".format(res[4]))
+    print("===========================================")
+
+
+#DataTypeCompFun.py
+def dispval(x):
+    if(type(x)==int):
+        print("Value:{} Type:{}".format(x,type(x)))
+    elif(type(x)==float):
+        print("Value:{} Type:{}".format(x, type(x)))
+    elif(type(x)==bool):
+        print("Value:{} Type:{}".format(x, type(x)))
+    elif(type(x)==complex):
+        print("Value:{} Type:{}".format(x, type(x)))
+    elif(type(x)==str):
+        print("Value:{} Type:{}".format(x, type(x)))
+    elif (type(x) == bytes):
+        print("Value:{} Type:{}".format(x, type(x)))
+    elif (type(x) == bytearray):
+        print("Value:{} Type:{}".format(x, type(x)))
+    elif (type(x) == range):
+        print("Value:{} Type:{}".format(x, type(x)))
+        for v in x:
+            print("\t\t{}".format(v))
+    elif(type(x)==list):
+        print("Value:{} Type:{}".format(x, type(x)))
+    elif (type(x) == tuple):
+        print("Value:{} Type:{}".format(x, type(x)))
+    elif (type(x) == set):
+        print("Value:{} Type:{}".format(x, type(x)))
+    elif (type(x) == frozenset):
+        print("Value:{} Type:{}".format(x, type(x)))
+    elif (type(x) == dict):
+        print("Value:{} Type:{}".format(x, type(x)))
+        for k,v in x.items():
+           print("\t\t{}--->{}".format(k,v))
+    else:
+        print("Value:{} Type:{}".format(x, type(x)))
+
+
+#Main Program
+print("Fundamental Category Data Types")
+dispval(10) # Function with int type
+dispval(10.4) # Function with float type
+dispval(True) # Function with bool type
+dispval(2+3j) # Function with complex type
+print("--------------------------------------------")
+print("Sequence Category Data Types")
+dispval("PYTHON") # Function with str type
+dispval(bytes([10,20,30,40])) # Function with bytes type
+dispval(bytearray([10,20,30,40])) # Function with bytearray type
+dispval(range(10,21,2)) # Function with range type
+print("--------------------------------------------")
+print("List Category Data Types")
+dispval([10,20,30,40,-34,12]) # Function with list type
+dispval(list("PYTHON")) # Function with list type
+dispval(tuple("TUPLE")) # Function with tuple type
+dispval((10,20,30)) # Function with tuple type
+print("--------------------------------------------")
+print("Set Category Data Types")
+dispval({10,20,30,40,-34,12}) # Function with set type
+dispval(frozenset((100,200,300,400))) # Function with frozenst type
+print("--------------------------------------------")
+print("Dict Category Data Types")
+dispval({10:1.2,3:4.5,6:6.7})# Function with dict type
+dispval(dict([(10,"RS") ,(20,"TR"),(30,"DR")]))# Function with dict type
+dispval(dict(zip( ["Python","C","C++","Java"],[1,2,3,4] )))# Function with dict type
+print("--------------------------------------------")
+print("NoneType Category Data Type")
+print("--------------------------------------------")
+dispval(None)
+print("--------------------------------------------")
+
+

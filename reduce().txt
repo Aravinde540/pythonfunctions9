@@ -1,0 +1,190 @@
+		================================
+				3. reduce()
+		================================
+=>reduce() is used for obtaining a single element / result from given iterable object by applying to a function.
+=>Syntax:-
+		varname=reduce(function-name,iterable-object)
+=>here varname is an object of int, float,bool,complex,str only
+=>The reduce() belongs to a pre-defined module called " functools".
+---------------------------------------
+Internal Flow of reduce()
+---------------------------------------
+step-1:- Initially, reduce() selects  First Two values of Iterable object and place them in First var and Second var .
+step-2:- The function-name(lambda or normal function) utilizes the values of First var and                     
+             Second var and applied to the specified logic and obtains the result.
+Step-3:- reduce () places the result of function-name in First variable and reduce() 
+              selects the succeeding element of Iterable object and places in second variable.
+Step-4: Repeat  Step-2 and Step-3 until all elements completed in		             
+             Iterable object and returns the result of First Variable.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+#Program for finding Sum of List of Vaalues
+#ReduceEx1.py
+import functools
+lst=list(map(float,input("Enter List of Values Separated by Space:").split()))
+print("Given Values:")
+print(lst)
+#find sum of list of Values 
+res=functools.reduce(lambda k,v: k+v, lst)
+print("Sum({})={}".format(lst,res))
+-----------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#Program for finding Sum of List of Vaalues
+#ReduceEx2.py
+import functools
+
+def sumop(k,v):
+	return (k+v)
+
+#Main Program
+lst=list(map(float,input("Enter List of Values Separated by Space:").split()))
+print("Given Values:")
+print(lst)
+#find sum of list of Values 
+res=functools.reduce(sumop, lst)
+print("Sum({})={}".format(lst,res))
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#Program for finding Biggest  of List of Values
+#ReduceEx3.py
+import functools
+lst=list(map(float,input("Enter List of Values Separated by Space:").split()))
+print("Given Values:")
+print(lst)
+#Logic for Finding Max  and min from List of Values
+bv=functools.reduce(lambda x,y: x if x>y else y, lst)
+sv=functools.reduce(lambda x,y: x if x<y else y, lst)
+print("Max({})={}".format(lst,bv))
+print("Min({})={}".format(lst,sv))
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#Program for finding Biggest  of List of Values
+#ReduceEx4.py
+import functools
+def bigv(k,v):
+	if(k>v):
+		return k
+	else:
+		return v
+
+def smallv(k,v):
+	if(k<v):
+		return k
+	else:
+		return v
+
+lst=list(map(float,input("Enter List of Values Separated by Space:").split()))
+print("Given Values:")
+print(lst)
+#Logic for Finding Max  and min from List of Values
+bv=functools.reduce(bigv, lst)
+sv=functools.reduce(smallv, lst)
+print("Max({})={}".format(lst,bv))
+print("Min({})={}".format(lst,sv))
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#Program for finding Biggest  of List of Values
+#ReduceEx5.py
+import functools
+def bigv(k,v):
+	return (k if k>v else v)
+
+def smallv(k,v):
+	return (k if k<v else v)
+
+lst=list(map(float,input("Enter List of Values Separated by Space:").split()))
+print("Given Values:")
+print(lst)
+#Logic for Finding Max  and min from List of Values
+bv=functools.reduce(bigv, lst)
+sv=functools.reduce(smallv, lst)
+print("Max({})={}".format(lst,bv))
+print("Min({})={}".format(lst,sv))
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#Program for getting Line of Text from List of Words
+#ReduceEx6.py
+import functools
+#Main Program
+lst=list(map(str,input("Enter List of Words Separated by Comma:").split(",")))
+print("-------------------------------")
+print("Given Words:")
+print(lst)
+print("-------------------------------")
+line=functools.reduce(lambda k,v:k+" "+v,lst)
+print("Line of Text:")
+print(line)
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#Program for getting Line of Text from List of Words
+#ReduceEx7.py
+import functools
+def kvrjoin(k,v):
+	return (k+" "+v)
+#Main Program
+lst=list(map(str,input("Enter List of Words Separated by Comma:").split(",")))
+print("-------------------------------")
+print("Given Words:")
+print(lst)
+print("-------------------------------")
+line=functools.reduce(kvrjoin,lst)
+print("Line of Text:")
+print(line)
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#Program for implementing the following Problem
+#FilterMapReduceEx.py
+#Accept the salaries of Different Employees ranges between 0 to 1000
+#Get the salaries ranges from 0 to 500 and give 10 % hike 
+#Get the salaries ranges from 501 to 1000 and give 20 % hike 
+#Find the Total Salary before hike and after hike whose  salaries ranges from 0 to 500
+#Find the Total Salary before hike and after hike whose  salaries ranges from 501 to 1000
+                              ---------------------------
+import functools
+oldsal=list([float(sal) for sal in input("Enter List of Salaries:").split()   if float(sal) in range(0,1001)])
+print("-------------------------------------------------------------------------------")
+print("Given Salaries:")
+print(oldsal)
+print("-------------------------------------------------------------------------------")
+
+#Get the salaries ranges from 0 to 500 and give 10 % hike
+ 
+sal0_500=list(filter(lambda sal: 0<=sal<=500, oldsal))
+hikesal0_500=list(map(lambda sal:sal+sal*(10/100),sal0_500))
+print("*"*50)
+print("Salaries ranges 0 -500 \t Hike Salaries ranges 0 -500")
+print("*"*50)
+for osl,hsl in zip(sal0_500,hikesal0_500):
+	print("\t{}\t\t\t{}".format(osl,hsl))
+print("*"*50)
+#Find the Total Salary before hike and after hike whose  salaries ranges from 0 to 500
+totsal0_500=functools.reduce(lambda sal1,sal2:sal1+sal2, sal0_500)
+hiketotsal0_500=functools.reduce(lambda sal1,sal2:sal1+sal2, hikesal0_500)
+print(" Total:{}\t\t\t{}".format(totsal0_500,hiketotsal0_500))
+print("*"*50)
+#Get the salaries ranges from 501 to 1000 and give 20 % hike 
+sal501_1000=list(filter(lambda sal: sal in range(501,1001), oldsal))
+hikesal501_1000=list(map(lambda sal:sal+sal*(20/100),sal501_1000))
+print("*"*50)
+print("Salaries ranges 501-1000\tHike Salaries ranges 501 -1000")
+print("*"*50)
+for osl,hsl in zip(sal501_1000,hikesal501_1000):
+		print("\t{}\t\t\t{}".format(osl,hsl))
+print("*"*50)
+totsal501_1000=functools.reduce(lambda sal1,sal2:sal1+sal2,sal501_1000)
+tothikesal501_1000=functools.reduce(lambda sal1,sal2:sal1+sal2,hikesal501_1000)
+print(" Total:{}\t\t\t{}".format(totsal501_1000,tothikesal501_1000))
+print("*"*50)
+print("Grand Totals:{}\t\t\t{}".format(totsal0_500+totsal501_1000,hiketotsal0_500+tothikesal501_1000))
+print("*"*50)
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
